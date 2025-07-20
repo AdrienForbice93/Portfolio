@@ -17,12 +17,12 @@ export default function Error(): JSX.Element {
 					</div>
 					<div className="py-4 text-center">
 						<h1 className="mt-2 text-4xl font-extrabold text-gray-500 dark:text-white tracking-tight sm:text-5xl">
-							Whoops!
+							Oops!
 						</h1>
 						<p className="mt-8 text-sm font-medium text-gray-300 dark:text-gray-400">
-							Looks like you took a wrong turn.
+							On dirait que tu as pris le mauvais chemin.
 							<br />
-							The page you&apos;re looking for couldn&apos;t be found.
+							La page que vous recherchez n&apos;a pas pu être trouvée.
 						</p>
 						<div className="mt-6 flex justify-center items-center space-x-4">
 							<Button.Standard

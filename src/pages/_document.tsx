@@ -3,7 +3,7 @@ import { Head, Html, Main, NextScript } from 'next/document';
 
 export default function Document(): JSX.Element {
 	return (
-		<Html lang="en">
+		<Html lang="fr">
 			<Head>
 				<link rel="icon" type="image/png" href="/favicon.png" />
 			</Head>

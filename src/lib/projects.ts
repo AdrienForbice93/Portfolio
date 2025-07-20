@@ -13,7 +13,7 @@ import type { GitHubRepos, Project, ProjectPost } from '~/types';
  * @TODO Switch to v3 API using GraphQL to save over-fetching
  */
 export async function fetchProjects(): Promise<Array<Project> | null> {
-	const response = await fetch('https://api.github.com/users/nurodev/repos', {
+	const response = await fetch('https://api.github.com/users/adrienforbice93/repos', {
 		headers: {
 			...(process.env.GITHUB_PAT && {
 				authorization: `token ${process.env.GITHUB_PAT}`,
@@ -27,7 +27,7 @@ export async function fetchProjects(): Promise<Array<Project> | null> {
 		};
 
 		console.error({ error: json });
-		log.error('Failed to fetch projects', {
+		log.error('Échec de la récupération des projets', {
 			error: json,
 		});
 
@@ -40,14 +40,16 @@ export async function fetchProjects(): Promise<Array<Project> | null> {
 	const projectPosts = rawProjectPosts as Array<ProjectPost>;
 
 	const projects: Array<Project> = json
+		.filter(
+			(repo) =>
+				!repo.archived &&
+				!repo.name.toLowerCase().includes('portfolio') &&
+				!repo.name.toLowerCase().includes('adrienforbice')
+		)
 		.map((repo) => {
-			if (!repo.topics.includes('portfolio')) return null;
-
-			if (repo.archived) return null;
-
 			// Strip the emoji suffix from the repo description
-			const trimmedDescription = repo.description.split(' ');
-			trimmedDescription.shift();
+			const trimmedDescription = repo.description ? repo.description.split(' ') : [];
+			if (trimmedDescription.length > 0) trimmedDescription.shift();
 			const description = trimmedDescription.join(' ');
 
 			// Check if there is a matching blog post to attach
@@ -72,8 +74,7 @@ export async function fetchProjects(): Promise<Array<Project> | null> {
 				template: false,
 				url: repo.html_url.toLowerCase(),
 			} as Project;
-		})
-		.filter((project) => project !== null);
+		});
 
 	return projects;
 }
