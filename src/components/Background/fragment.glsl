@@ -6,10 +6,22 @@ uniform vec3 uColor;
 varying vec4 vRandom;
 
 void main() {
-	vec2 uv = gl_PointCoord.xy;
-	
-	float circle = smoothstep(0.5, 0.4, length(uv - 0.5)) * 1.0;
-	
-	gl_FragColor.rgb = uColor;
-	gl_FragColor.a = circle;
+    vec2 uv = gl_PointCoord.xy * 2.0 - 1.0; // Centre les coordonnées
+    
+    // Créer une forme d'étoile simple avec des croix - encore plus grandes (doublées)
+    float horizontal = smoothstep(0.2, 0.0, abs(uv.y)) * smoothstep(2.0, 0.0, abs(uv.x));
+    float vertical = smoothstep(0.2, 0.0, abs(uv.x)) * smoothstep(2.0, 0.0, abs(uv.y));
+    
+    // Diagonales pour une étoile plus complète - encore plus grandes (doublées)
+    float diag1 = smoothstep(0.19, 0.0, abs(uv.x - uv.y)) * smoothstep(1.4, 0.0, length(uv));
+    float diag2 = smoothstep(0.19, 0.0, abs(uv.x + uv.y)) * smoothstep(1.4, 0.0, length(uv));
+    
+    // Centre de l'étoile - encore plus grand (doublé)
+    float center = smoothstep(0.4, 0.0, length(uv));
+    
+    // Combiner toutes les parties
+    float star = max(max(horizontal, vertical), max(max(diag1, diag2), center));
+    
+    gl_FragColor.rgb = uColor;
+    gl_FragColor.a = star;
 }

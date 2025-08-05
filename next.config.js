@@ -2,15 +2,15 @@ const WindiCSS = require('windicss-webpack-plugin');
 const { withAxiom } = require('next-axiom');
 
 const ContentSecurityPolicy = `
-  child-src *.google.com streamable.com;
+  child-src *;
   connect-src *;
-  default-src 'self';
-  font-src 'self';
+  default-src * 'unsafe-inline' 'unsafe-eval' data:;
+  font-src * data:;
   img-src * blob: data:;
-  media-src 'none';
-  script-src 'self' 'unsafe-eval' 'unsafe-inline' cdn.splitbee.io;
-  style-src 'self' 'unsafe-inline' *.googleapis.com;
-  worker-src 'self' 'unsafe-inline' blob:;
+  media-src *;
+  script-src * 'unsafe-eval' 'unsafe-inline' data:;
+  style-src * 'unsafe-inline';
+  worker-src * 'unsafe-inline' blob:;
 `;
 
 /**

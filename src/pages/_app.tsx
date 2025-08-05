@@ -42,7 +42,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
 
 	return (
 		<ThemeProvider attribute="class" defaultTheme={Theme.SYSTEM} themes={Object.values(Theme)}>
-			<Analytics />
+			{process.env.NODE_ENV === 'production' && <Analytics />}
 			<Component {...pageProps} />
 			<style jsx global>{`
 				#nprogress .bar {

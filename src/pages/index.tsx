@@ -24,13 +24,14 @@ const ACTIONS: Array<NavigationItem> = [
 	// },
 	{
 		type: NavigationItemType.LINK,
-		href: 'http://ec2-3-82-101-15.compute-1.amazonaws.com/',
-		icon: <Icon className="mr-3" icon="feather:edit-2" />,
-		text: 'CV',
+		href: 'https://www.linkedin.com/in/adrien-forbice-développeur',
+		external: true,
+		icon: <Icon className="mr-3" icon="feather:linkedin" />,
+		text: 'LinkedIn',
 	},
 	{
 		type: NavigationItemType.LINK,
-		href: '/projets',
+		href: '/projects',
 		icon: <Icon className="mr-3" icon="feather:copy" />,
 		text: 'Projets',
 	},
