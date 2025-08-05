@@ -27,7 +27,7 @@ const staticMenuItems: Array<Array<NavigationItem>> = [
 			type: NavigationItemType.LINK,
 			icon: 'feather:edit-2',
 			text: 'CV',
-			href: '/CVGenerique.pdf',
+			href: 'https://mon-cv-responsive.vercel.app',
 			external: true,
 		},
 		{
