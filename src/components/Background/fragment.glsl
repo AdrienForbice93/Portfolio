@@ -22,6 +22,15 @@ void main() {
     // Combiner toutes les parties
     float star = max(max(horizontal, vertical), max(max(diag1, diag2), center));
     
+    // Effet de scintillement - toutes les 0.5 secondes
+    // Utiliser vRandom pour que chaque étoile ait un timing légèrement différent
+    float timeOffset = vRandom.x * 6.28; // Décalage aléatoire pour chaque étoile
+    float twinkleSpeed = 4.0; // 4.0 = 2 cycles par seconde = scintillement toutes les 0.5s
+    float twinkle = 0.5 + 0.5 * sin(uTime * twinkleSpeed + timeOffset);
+    
+    // Appliquer le scintillement à l'étoile
+    star *= twinkle;
+    
     gl_FragColor.rgb = uColor;
     gl_FragColor.a = star;
 }
