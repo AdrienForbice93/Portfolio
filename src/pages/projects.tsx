@@ -27,7 +27,7 @@ export default function ProjectsPage({ stringifiedProjects }: ProjectProps): JSX
 
 	return (
 		<Layout.Default seo={{ title: 'Adrien ─ projets' }}>
-			<div className="my-24 mx-2 sm:mx-6 lg:mb-28 lg:mx-8">
+			<div className="min-h-screen my-24 mx-2 sm:mx-6 lg:mb-28 lg:mx-8">
 				<div className="relative max-w-xl mx-auto">
 					<List.Container>
 						{projects.map((project, index) => (

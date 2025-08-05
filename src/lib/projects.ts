@@ -43,7 +43,7 @@ export async function fetchProjects(): Promise<Array<Project> | null> {
 		.filter(
 			(repo) =>
 				!repo.archived &&
-				!repo.name.toLowerCase().includes('portfolio') &&
+				!repo.name.toLowerCase().includes('portfolioback') &&
 				!repo.name.toLowerCase().includes('adrienforbice')
 		)
 		.map((repo) => {
