@@ -1,0 +1,20 @@
+[
+	{
+		"date": "08-05-2025",
+		"title": "Lancement du Portfolio",
+		"description": "Déploiement de mon portfolio personnel sur Vercel",
+		"icon": "feather:award"
+	},
+	{
+		"date": "01-01-2025",
+		"title": "Début de l'année",
+		"description": "Nouvelle année, nouveaux projets",
+		"icon": "feather:calendar"
+	},
+	{
+		"date": "12-01-2024",
+		"title": "Projets de développement",
+		"description": "Début du développement de plusieurs projets web",
+		"icon": "feather:code"
+	}
+]
