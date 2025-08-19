@@ -10,7 +10,7 @@ interface DefaultLayoutProps extends WithChildren {
 
 export function ErrorLayout({ children, seo }: DefaultLayoutProps): JSX.Element {
 	const seoProps = useSeoProps({
-		title: 'Adrien ─ Whoops!',
+		title: 'Adrien ─ Oups!',
 		...seo,
 	});
 

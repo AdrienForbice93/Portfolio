@@ -46,7 +46,7 @@ const ACTIONS: Array<NavigationItem> = [
 
 export default function HomePage(): JSX.Element {
 	const today = new Date();
-	const birthday = new Date('1997-08-09');
+	const birthday = new Date('1993-01-08');
 	const isBirthday =
 		today.getDate() === birthday.getDate() && today.getMonth() === birthday.getMonth();
 
@@ -72,7 +72,7 @@ export default function HomePage(): JSX.Element {
 						<span>Je suis Adrien,</span>
 						<br />
 						<span>
-							un <Pill.Standard className="mt-4">développeur</Pill.Standard>
+						<Pill.Standard className="mt-4">développeur</Pill.Standard>
 						</span>
 					</Animate>
 
